@@ -1,3 +1,22 @@
+# Bazel stuff
+
+```
+bazel build //... # build everything
+bazel test //example/... --test_output=all --sandbox_debug --verbose_failures
+
+# should see
+
+--- FAIL: TestExpectFile (0.03s)
+    autogold.go:146: mismatch (-want +got):
+        -- want
+        ++ got
+        @@ -1 +1,2 @@
+        &example.Baz{Name: "Jane", Age: 31}
+        err: exit status 1: stderr: unknown command: go. Perhaps you have to reshim?
+        
+```
+
+
 # autogold - automatically update your Go tests <a href="https://hexops.com"><img align="right" alt="Hexops logo" src="https://raw.githubusercontent.com/hexops/media/master/readme.svg"></img></a>
 
 <a href="https://pkg.go.dev/github.com/hexops/autogold"><img src="https://pkg.go.dev/badge/badge/github.com/hexops/autogold.svg" alt="Go Reference" align="right"></a>

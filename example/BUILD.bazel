@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "example",
+    srcs = ["example.go"],
+    importpath = "github.com/hexops/autogold/v2/example",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "example_test",
+    srcs = ["example_test.go"],
+    data = glob(["testdata/**"]),
+    embed = [":example"],
+    deps = ["//:autogold"],
+)
